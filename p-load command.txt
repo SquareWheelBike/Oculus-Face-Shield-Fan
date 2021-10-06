@@ -1,0 +1,3 @@
+p-load –w filename.hex
+
+hex file is for pic 18f25k50 processor
