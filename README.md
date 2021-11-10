@@ -1,5 +1,8 @@
 # Oculus-Face-Shield-Fan
 
-Controls a PIC 18f25k50; pressing the button will cycle through speed settings
+Updated to use an Arduino Nano.
 
-steps are 20% at a time, the LED will flash in bursts, each burst count is equivalent to the current step
+Use .ino file in src/, examples are other projects I found that use arduino timers for PWM.
+Arduino version uses a 25kHz PWM, stepped 20% at a time. Default is 40%.
+Controls a noctua fan, PWM out is on pin 9.
+Pin 3 is a pullup input for a push button. Input is debounced.

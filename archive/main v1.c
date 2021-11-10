@@ -55,8 +55,8 @@ int oneShot(int precond, int OSR)
 }
 
 	int timerInSession[8];		// for speed, so we only update timer timers when needed
-	int timerMemory[sizeof(timerInSession) / 2];			// make function calls smaller by remembering previous output state
-	unsigned long timerTimers[sizeof(timerInSession) / 2];	// debounce timers available for use
+	int timerMemory[sizeof(timerInSession) / sizeof(int)];			// make function calls smaller by remembering previous output state
+	unsigned long timerTimers[sizeof(timerInSession) / sizeof(int)];	// debounce timers available for use
 	int timerTracker;
 
 int TON(int input, int preset, int timerNumber)
@@ -100,7 +100,7 @@ void main(void) {
         // Main code here
         
         // mode change condition
-        if (oneShot(Switch, ONSTracker++))
+        if (oneShot(TON(Switch, 20, timerTracker++), ONSTracker++))
         {
             mode++; // increment to next mode
             if (mode > 5)   
